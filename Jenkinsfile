@@ -12,9 +12,9 @@ pipeline {
 
                 }
             }
-              stage('build'){
+              stage('compile'){
                 steps {
-                 echo "build project"
+                 echo "compile project"
                  bat "mvn compile"
 
                 }
