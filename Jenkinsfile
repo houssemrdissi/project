@@ -5,23 +5,23 @@ pipeline {
                 maven 'Maven'
         }
         stages{
-            stage('clean'){
+            stage('Clean'){
                 steps {
-                 echo "clean project"
+                 echo "Clean project"
                  bat "mvn clean"
 
                 }
             }
-              stage('compile'){
+              stage('Compile'){
                 steps {
-                 echo "compile project"
+                 echo "Compile project"
                  bat "mvn compile"
 
                 }
             }
             stage('Test'){
                 steps{ 
-                 echo "test project"
+                 echo "Test project"
                  bat "mvn test"
                         
                 }
