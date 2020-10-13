@@ -40,7 +40,7 @@ pipeline {
                  bat "mvn sonar:sonar"
 
                 }
-            }
+            
             }
         }
 }
