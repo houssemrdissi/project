@@ -35,7 +35,8 @@ pipeline {
              stage('Deploy'){
                 steps {
                  echo "Deploy project"
-              
+                 bat "mvn deploy"
+                 bat "mvn sonar:sonar"
 
                 } 
             }
