@@ -11,7 +11,10 @@ import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 @Service
 public class EntrepriseServiceImpl implements IEntrepriseService {
 
@@ -20,11 +23,66 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	@Autowired
 	DepartementRepository deptRepoistory;
 	
+	private static final Logger l = LogManager.getLogger(EntrepriseServiceImpl.class);
+	
+	
+	
+	
+	/////////////////////////////////// START HOUSSEM MODULE CRUD ENTREPRISE ////////////////////////////////////////
+	
+	
 	public int ajouterEntreprise(Entreprise entreprise) {
 		entrepriseRepoistory.save(entreprise);
 		return entreprise.getId();
 	}
+	
+	@Override 
+	public Entreprise updateEntreprise(Entreprise e) {
+		return entrepriseRepoistory.save(e);	
+		
+	}
+	
+	@Transactional
+	public void deleteEntrepriseById(int entrepriseId) {
+		entrepriseRepoistory.delete(entrepriseRepoistory.findById(entrepriseId).get());	
+	}
 
+	public Entreprise getEntrepriseById(int entrepriseId) {
+
+			if( entrepriseRepoistory.existsById(entrepriseId)==false)
+			{
+				return null;
+			}
+			return entrepriseRepoistory.findById(entrepriseId).get();
+
+	}
+	
+	@Override
+	public List<Entreprise> retrieveAllEntreprises() {
+		
+		List<Entreprise> Entreprises = (List<Entreprise>) entrepriseRepoistory.findAll();  
+		for (Entreprise e : Entreprises) {
+			l.debug("user +++ : " + e);
+		}
+	
+		return Entreprises;
+	}
+	
+	///////////////////////////////////////// FINISH HOUSSEM MODULE CRUD ENTREPRISE /////////////////////////////
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//////////////////////////////////////////START MODULE DEPARTEMENT//////////////////////////////////////////
+	
+	
 	public int ajouterDepartement(Departement dep) {
 		deptRepoistory.save(dep);
 		return dep.getId();
@@ -54,10 +112,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		return depNames;
 	}
 
-	@Transactional
-	public void deleteEntrepriseById(int entrepriseId) {
-		entrepriseRepoistory.delete(entrepriseRepoistory.findById(entrepriseId).get());	
-	}
+
 
 	@Transactional
 	public void deleteDepartementById(int depId) {
@@ -65,8 +120,6 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	}
 
 
-	public Entreprise getEntrepriseById(int entrepriseId) {
-		return entrepriseRepoistory.findById(entrepriseId).get();	
-	}
+
 
 }
