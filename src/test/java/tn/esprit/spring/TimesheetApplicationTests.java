@@ -41,7 +41,16 @@ public class TimesheetApplicationTests {
 		assertEquals(e.getId(), entrepriseAdded);
 	}
 	
+	@Test
+	public void testupdateEntreprise() throws ParseException {
+		
+		Entreprise e = new Entreprise(3,"waa", "waaat ");
 
+		Entreprise entrepriseAdded= us.updateEntreprise(e); 
+		assertEquals(e.getRaisonSocial(), entrepriseAdded.getRaisonSocial());
+		assertEquals(e.getName(), entrepriseAdded.getName());
+	}
+	
 
 
 	///////////////////////////////////////// FINISH HOUSSEM MODULE CRUD TEST ENTREPRISE /////////////////////////////
