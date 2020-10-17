@@ -30,7 +30,59 @@ import tn.esprit.spring.services.IEntrepriseService;
 @SpringBootTest
 public class EntrepriseServiceImplTests {
 	
+	@Autowired 
+	IEntrepriseService us; 
 
+	
+	
+	/////////////////////////////////// START HOUSSEM MODULE CRUD TEST ENTREPRISE ////////////////////////////////////////
+
+	@Test
+	public void testajouterEntreprise() throws ParseException {
+		
+		Entreprise e = new Entreprise("new", "world ");
+		int entrepriseAdded= us.ajouterEntreprise(e); 
+		
+		assertEquals(e.getId(), entrepriseAdded);
+	}
+	
+	@Test
+	public void testupdateEntreprise() throws ParseException {
+		
+		Entreprise e = new Entreprise(3,"update", "world ");
+
+		Entreprise entrepriseAdded= us.updateEntreprise(e); 
+		assertEquals(e.getRaisonSocial(), entrepriseAdded.getRaisonSocial());
+		assertEquals(e.getName(), entrepriseAdded.getName());
+	}
+	
+	@Test
+	public void testdeleteEntreprise() throws ParseException {
+
+		us.deleteEntrepriseById(41); 		
+	    assertNull(us.getEntrepriseById(41));			
+	}
+	
+	@Test
+	public void testRetrieveEntreprise() {
+		Entreprise entrepriseRetrieved = us.getEntrepriseById(4); 
+		assertEquals(4L, entrepriseRetrieved.getId());
+	}
+	
+	@Test
+	public void testRetrieveAllEntreprise() {
+		
+		List<Entreprise> Entreprises = us.retrieveAllEntreprises(); 
+		assertEquals(22, Entreprises.size());
+	}
+	
+	///////////////////////////////////////// FINISH HOUSSEM MODULE CRUD TEST ENTREPRISE /////////////////////////////
+
+	
+	
+	
+	
+	
 	
 
 }

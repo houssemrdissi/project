@@ -35,7 +35,7 @@ public class TimesheetApplicationTests {
 	@Test
 	public void testajouterEntreprise() throws ParseException {
 		
-		Entreprise e = new Entreprise("hou", "Cite El ");
+		Entreprise e = new Entreprise("new", "jenkins ");
 		int entrepriseAdded= us.ajouterEntreprise(e); 
 		
 		assertEquals(e.getId(), entrepriseAdded);
@@ -44,7 +44,7 @@ public class TimesheetApplicationTests {
 	@Test
 	public void testupdateEntreprise() throws ParseException {
 		
-		Entreprise e = new Entreprise(3,"ff", "fff ");
+		Entreprise e = new Entreprise(3,"update", "jenkins ");
 
 		Entreprise entrepriseAdded= us.updateEntreprise(e); 
 		assertEquals(e.getRaisonSocial(), entrepriseAdded.getRaisonSocial());
@@ -54,8 +54,8 @@ public class TimesheetApplicationTests {
 	@Test
 	public void testdeleteEntreprise() throws ParseException {
 
-		us.deleteEntrepriseById(40); 		
-	    assertNull(us.getEntrepriseById(40));			
+		us.deleteEntrepriseById(42); 		
+	    assertNull(us.getEntrepriseById(42));			
 	}
 	
 	@Test

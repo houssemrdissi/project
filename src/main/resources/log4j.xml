@@ -18,8 +18,8 @@
 	<!-- Confighuration de l'affichage dns le fichier de logs -->
 	<!-- append=false: pour écraser les anciens logs près chaque redémarrage -->
 	<appender name="file" class="org.apache.log4j.RollingFileAppender">
-		<param name="append" value="false" />
-		<param name="maxFileSize" value="1KB" />
+		<param name="append" value="true" />
+		<param name="maxFileSize" value="10KB" />
 		<param name="maxBackupIndex" value="4" />
 		<param name="file" value="C:/logs/formation/log4j-demo.log" />
 		<layout class="org.apache.log4j.PatternLayout">

@@ -12,24 +12,7 @@ pipeline {
 
                 }
             }
-              stage('Compile'){
-                steps {
-                 echo "Compile project"
 
-                }
-            }
-            stage('Test'){
-                steps{ 
-                 echo "Test project"
-                        
-                }
-            }
-            stage('Package'){
-                steps {
-                 echo "Package project"
-
-                  }     
-              }
              stage('Deploy'){
                 steps {
                  echo "Deploy project"
