@@ -29,7 +29,6 @@ pipeline {
             stage('Package'){
                 steps {
                  echo "Package project"
-                 bat "mvn package"
 
                   }     
               }
