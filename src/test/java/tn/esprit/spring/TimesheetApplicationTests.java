@@ -41,8 +41,36 @@ public class TimesheetApplicationTests {
 		assertEquals(e.getId(), entrepriseAdded);
 	}
 	
+	@Test
+	public void testupdateEntreprise() throws ParseException {
+		
+		Entreprise e = new Entreprise(3,"ff", "fff ");
 
+		Entreprise entrepriseAdded= us.updateEntreprise(e); 
+		assertEquals(e.getRaisonSocial(), entrepriseAdded.getRaisonSocial());
+		assertEquals(e.getName(), entrepriseAdded.getName());
+	}
+	
+	@Test
+	public void testdeleteEntreprise() throws ParseException {
 
+		us.deleteEntrepriseById(40); 		
+	    assertNull(us.getEntrepriseById(40));			
+	}
+	
+	@Test
+	public void testRetrieveEntreprise() {
+		Entreprise entrepriseRetrieved = us.getEntrepriseById(4); 
+		assertEquals(4L, entrepriseRetrieved.getId());
+	}
+	
+	@Test
+	public void testRetrieveAllEntreprise() {
+		
+		List<Entreprise> Entreprises = us.retrieveAllEntreprises(); 
+		assertEquals(49, Entreprises.size());
+	}
+	
 	///////////////////////////////////////// FINISH HOUSSEM MODULE CRUD TEST ENTREPRISE /////////////////////////////
 
 	
