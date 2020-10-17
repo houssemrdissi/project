@@ -22,7 +22,6 @@ import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.services.IEntrepriseService;
 
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class TimesheetApplicationTests {
 
