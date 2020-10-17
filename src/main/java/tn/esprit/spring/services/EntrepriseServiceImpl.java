@@ -13,8 +13,7 @@ import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 @Service
 public class EntrepriseServiceImpl implements IEntrepriseService {
 
@@ -32,39 +31,44 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	
 	
 	public int ajouterEntreprise(Entreprise entreprise) {
+		l.info("In  addEntreprise : " + entreprise); 
 		entrepriseRepoistory.save(entreprise);
+		l.info("Out of  addEntreprise. "); 
 		return entreprise.getId();
 	}
 	
 	@Override 
 	public Entreprise updateEntreprise(Entreprise e) {
+		l.info("In  updateEntreprise : " + e); 
 		return entrepriseRepoistory.save(e);	
 		
 	}
 	
 	@Transactional
 	public void deleteEntrepriseById(int entrepriseId) {
+		l.info("In  deleteEntreprise : " + entrepriseId); 
 		entrepriseRepoistory.delete(entrepriseRepoistory.findById(entrepriseId).get());	
 	}
 
 	public Entreprise getEntrepriseById(int entrepriseId) {
-
+		l.info("in  retrieveEntreprise id = " + entrepriseId);
 			if( entrepriseRepoistory.existsById(entrepriseId)==false)
 			{
 				return null;
 			}
+			l.info("entreprise returned : " + entrepriseRepoistory.findById(entrepriseId).get());
 			return entrepriseRepoistory.findById(entrepriseId).get();
 
 	}
 	
 	@Override
 	public List<Entreprise> retrieveAllEntreprises() {
-		
+		l.info("In  retrieveAllEntreprises : "); 
 		List<Entreprise> Entreprises = (List<Entreprise>) entrepriseRepoistory.findAll();  
 		for (Entreprise e : Entreprises) {
-			l.debug("user +++ : " + e);
+			l.debug("entreprise +++ : " + e);
 		}
-	
+		l.info("Out of retrieveAllEntreprises."); 
 		return Entreprises;
 	}
 	
