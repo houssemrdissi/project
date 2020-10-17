@@ -19,13 +19,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.services.IEntrepriseService;
 
+import org.springframework.boot.test.context.SpringBootTest;
 
 
 
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-public class EntrepriseServiceImpTests {
+class EntrepriseServiceImpTests {
 	
 	@Autowired 
 	IEntrepriseService us; 
@@ -56,8 +56,8 @@ public class EntrepriseServiceImpTests {
 	@Test
 	public void testdeleteEntreprise() throws ParseException {
 
-		us.deleteEntrepriseById(29); 		
-	    assertNull(us.getEntrepriseById(29));			
+		us.deleteEntrepriseById(32); 		
+	    assertNull(us.getEntrepriseById(32));			
 	}
 	
 	@Test
