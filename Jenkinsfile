@@ -15,7 +15,6 @@ pipeline {
               stage('Compile'){
                 steps {
                  echo "Compile project"
-                 bat "mvn install"
 
                 }
             }
