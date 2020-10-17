@@ -40,8 +40,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	@Override 
 	public Entreprise updateEntreprise(Entreprise e) {
 		l.info("In  updateEntreprise : " + e); 
-		return entrepriseRepoistory.save(e);	
-		
+		return entrepriseRepoistory.save(e);		
 	}
 	
 	@Transactional
@@ -58,7 +57,6 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 			}
 			l.info("entreprise returned : " + entrepriseRepoistory.findById(entrepriseId).get());
 			return entrepriseRepoistory.findById(entrepriseId).get();
-
 	}
 	
 	@Override
