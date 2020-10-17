@@ -1,5 +1,8 @@
 package tn.esprit.spring;
 
+import org.springframework.boot.test.context.SpringBootTest;
+
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -56,8 +59,8 @@ public class EntrepriseServiceImplTests {
 	@Test
 	public void testdeleteEntreprise() throws ParseException {
 
-		us.deleteEntrepriseById(29); 		
-	    assertNull(us.getEntrepriseById(29));			
+		us.deleteEntrepriseById(31); 		
+	    assertNull(us.getEntrepriseById(31));			
 	}
 	
 	@Test
