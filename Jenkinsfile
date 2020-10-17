@@ -15,14 +15,13 @@ pipeline {
               stage('Compile'){
                 steps {
                  echo "Compile project"
-                 bat "mvn compile"
+                 bat "mvn install"
 
                 }
             }
             stage('Test'){
                 steps{ 
                  echo "Test project"
-                 bat "mvn test"
                         
                 }
             }
