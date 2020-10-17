@@ -23,6 +23,7 @@ import tn.esprit.spring.services.IEntrepriseService;
 
 
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class EntrepriseServiceImplTests {
 	
@@ -57,8 +58,8 @@ public class EntrepriseServiceImplTests {
 	@Test
 	public void testdeleteEntreprise() throws ParseException {
 
-		us.deleteEntrepriseById(26); 		
-	    assertNull(us.getEntrepriseById(26));			
+		us.deleteEntrepriseById(28); 		
+	    assertNull(us.getEntrepriseById(28));			
 	}
 	
 	@Test
@@ -71,7 +72,7 @@ public class EntrepriseServiceImplTests {
 	public void testRetrieveAllEntreprise() {
 		
 		List<Entreprise> Entreprises = us.retrieveAllEntreprises(); 
-		assertEquals(18, Entreprises.size());
+		assertEquals(19, Entreprises.size());
 	}
 	
 	///////////////////////////////////////// FINISH HOUSSEM MODULE CRUD TEST ENTREPRISE /////////////////////////////
