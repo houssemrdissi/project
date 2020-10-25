@@ -18,8 +18,12 @@ pipeline {
 				                 bat "mvn clean"
 				                }catch(err)
 				                {
-				                mail bcc: '', body: "${err}", cc: '', from: '', replyTo: '', subject: 'Jenkins Clean Failure', to: 'houssem.entr@gmail.com'
-				                }
+				                mail bcc: '', cc: '', from: '', replyTo: '',
+				                subject: "Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED",
+                                body: "Please go to ${env.BUILD_URL} for more details. has result ${currentBuild.result} ",
+                                to: 'houssem.entr@gmail.com'
+				               
+				               	}
 				                
 				                }
 
@@ -35,10 +39,23 @@ pipeline {
 				                 bat "mvn sonar:sonar"
 				                }catch(err)
 				                {
-				                mail bcc: '', cc: '', from: '', replyTo: '',
-				                subject: "Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED",
-                                body: "Please go to ${env.BUILD_URL} for more details. has result ${currentBuild.result} ",
-                                to: 'houssem.entr@gmail.com'
+
+				               
+				               
+				               emailext attachLog: true, body:
+   """<p>EXECUTED: Job <b>\'${env.JOB_NAME}:${env.BUILD_NUMBER})\'
+   </b></p><p>View console output at "<a href="${env.BUILD_URL}"> 
+   ${env.JOB_NAME}:${env.BUILD_NUMBER}</a>"</p> 
+     <p><i>(Build log is attached.)</i></p>""", 
+    compressLog: true,
+    recipientProviders: [[$class: 'DevelopersRecipientProvider'], 
+     [$class: 'RequesterRecipientProvider']],
+    replyTo: 'do-not-reply@company.com', 
+    subject: "Status: ${currentBuild.result?:'SUCCESS'} - 
+    Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'", 
+    to: 'houssem.entr@gmail.com'
+				               
+				               
 				                }
 				                
 				                }
