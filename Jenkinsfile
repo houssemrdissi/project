@@ -9,11 +9,19 @@ pipeline {
         }
  
         stages{
-        node{
+        
             stage('Clean'){
                 steps {
-                 echo "Clean project"
-                 bat "mvn clean"
+                	        script {
+                            try {
+				                 echo "Clean project"
+				                 bat "mvn clean"
+				                }catch(err)
+				                {
+				                mail bcc: '', body: 'body22', cc: '', from: '', replyTo: '', subject: 'notif', to: 'houssem.entr@gmail.com'
+				                }
+				                
+				                }
 
                 }
             }
@@ -26,7 +34,7 @@ pipeline {
 
                 } 
             }
-         }
+         
         }
 
 }
