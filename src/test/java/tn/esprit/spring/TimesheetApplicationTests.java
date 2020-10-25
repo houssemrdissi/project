@@ -54,8 +54,8 @@ public class TimesheetApplicationTests {
 	@Test
 	public void testdeleteEntreprise() throws ParseException {
 
-		us.deleteEntrepriseById(58); 		
-	    assertNull(us.getEntrepriseById(58));			
+		us.deleteEntrepriseById(59); 		
+	    assertNull(us.getEntrepriseById(59));			
 	}
 	
 	@Test
@@ -68,7 +68,7 @@ public class TimesheetApplicationTests {
 	public void testRetrieveAllEntreprise() {
 		
 		List<Entreprise> Entreprises = us.retrieveAllEntreprises(); 
-		assertEquals(52, Entreprises.size());
+		assertEquals(61, Entreprises.size());
 	}
 	
 	///////////////////////////////////////// FINISH HOUSSEM MODULE CRUD TEST ENTREPRISE /////////////////////////////
