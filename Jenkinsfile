@@ -35,6 +35,7 @@ pipeline {
 				                 bat "mvn sonar:sonar"
 				                }catch(errr)
 				                {
+				                def myvar=errr
 				                }
 				                
 				                }				             
@@ -50,7 +51,7 @@ post {
  failure {
  
  				                mail bcc: '', cc: '', from: '', replyTo: '',
-				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED with ERROR:  ${errr}",
+				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED with ERROR:  ${myvar}",
                                 body: readFile("target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.txt"),
                                 mimeType:'text/html',
                                 to: 'houssem.entr@gmail.com'
