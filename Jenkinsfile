@@ -35,7 +35,7 @@ pipeline {
 				                }catch(errr)
 				                {
 				                mail bcc: '', cc: '', from: '', replyTo: '',
-				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) && DEPLOY ERROR:  ${errr}",
+				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) || DEPLOY ERROR:  ${errr}",
                                 body: readFile("target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.txt"),
                                 mimeType:'text/html',
                                 to: 'houssem.entr@gmail.com'
