@@ -1,3 +1,4 @@
+node{
 pipeline {
 
 
@@ -6,7 +7,7 @@ pipeline {
         tools{
                 maven 'Maven'
         }
-node{ 
+ 
         stages{
             stage('Clean'){
                 steps {
