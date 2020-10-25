@@ -1,13 +1,13 @@
 pipeline {
-try {
-        agent any
+   agent any
         
         tools{
                 maven 'Maven'
         }
         
-        
-	        stages{
+        try {
+     
+	        
 	            stage('Clean'){
 	                steps {	                
 	                 echo "Clean project"
@@ -25,7 +25,7 @@ try {
 	                } 
 	             }
 	      
-		      }
+		      
         
 }catch(err)
 {
