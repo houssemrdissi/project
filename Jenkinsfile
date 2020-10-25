@@ -44,7 +44,7 @@ post {
  failure {
  
  				                mail bcc: '', cc: '', from: '', replyTo: '',
-				                subject: "Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED with ERROR:",
+				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED",
                                 body: readFile("target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.txt"),
                                 mimeType:'text/html',
                                 to: 'houssem.entr@gmail.com'
@@ -55,7 +55,7 @@ post {
 
     always {
 				                mail bcc: '', cc: '', from: '', replyTo: '',
-				                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+				                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME} - (${env.BUILD_NUMBER})",
                                 body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
                                 to: 'houssem.entr@gmail.com'
             }
