@@ -27,21 +27,11 @@ pipeline {
 
              stage('Deploy'){
                 steps {
-				              script {
-                              try {  
+				               
 				                 echo "Deploy project"
 				                 bat "mvn deploy"
 				                 bat "mvn sonar:sonar"
-				                }catch(err)
-				                {
-				                mail bcc: '', cc: '', from: '', replyTo: '',
-				                subject: "Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED with ERROR: ${err}",
-                                body: readFile("target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.txt"),
-                                mimeType:'text/html',
-                                to: 'houssem.entr@gmail.com'				                     
-				                }
-				                
-				                }
+				             
 
                 } 
             }
