@@ -1,4 +1,3 @@
-
 pipeline {
 
 
@@ -39,13 +38,7 @@ pipeline {
 				                subject: "Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED with ERROR: ${err}",
                                 body: readFile("target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.txt"),
                                 mimeType:'text/html',
-                                to: 'houssem.entr@gmail.com'
-				               
-				               
-				               
-
-				               
-				               
+                                to: 'houssem.entr@gmail.com'				                     
 				                }
 				                
 				                }
@@ -54,5 +47,16 @@ pipeline {
             }
          
         }
+
+
+post {
+    always {
+				                mail bcc: '', cc: '', from: '', replyTo: '',
+				                subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                                body: "hi",
+                                to: 'houssem.entr@gmail.com'
+            }
+}
+
 
 }
