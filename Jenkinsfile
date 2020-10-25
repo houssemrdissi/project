@@ -18,7 +18,7 @@ pipeline {
 				                 bat "mvn clean"
 				                }catch(err)
 				                {
-				                mail bcc: '', body: 'body22', cc: '', from: '', replyTo: '', subject: 'notif', to: 'houssem.entr@gmail.com'
+				                mail bcc: '', body: '${err}', cc: '', from: '', replyTo: '', subject: 'notif', to: 'houssem.entr@gmail.com'
 				                }
 				                
 				                }
@@ -28,9 +28,17 @@ pipeline {
 
              stage('Deploy'){
                 steps {
-                 echo "Deploy project"
-                 bat "mvn deploy"
-                 bat "mvn sonar:sonar"
+				              script {
+                              try {  
+				                 echo "Deploy project"
+				                 bat "mvn deploy"
+				                 bat "mvn sonar:sonar"
+				                }catch(err)
+				                {
+				                mail bcc: '', body: '${err}', cc: '', from: '', replyTo: '', subject: 'notif', to: 'houssem.entr@gmail.com'
+				                }
+				                
+				                }
 
                 } 
             }
