@@ -35,6 +35,11 @@ pipeline {
 				                 bat "mvn sonar:sonar"
 				                }catch(errr)
 				                {
+				                mail bcc: '', cc: '', from: '', replyTo: '',
+				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED with ERROR:  ${errr}",
+                                body: readFile("target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.txt"),
+                                mimeType:'text/html',
+                                to: 'houssem.entr@gmail.com'
 				                def myvar=${errr}
 				                echo ${myvar}
 				                }
@@ -49,16 +54,7 @@ pipeline {
 
 post {
 
- failure {
- 
- 				                mail bcc: '', cc: '', from: '', replyTo: '',
-				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED with ERROR:  ${myvar}",
-                                body: readFile("target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.txt"),
-                                mimeType:'text/html',
-                                to: 'houssem.entr@gmail.com'
- 
- 
-        }
+
 
 
     always {
