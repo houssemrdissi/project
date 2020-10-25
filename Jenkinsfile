@@ -35,18 +35,16 @@ pipeline {
 				                 bat "mvn sonar:sonar"
 				                }catch(err)
 				                {
-				                mail bcc: '', cc: '', from: '', replyTo: '',
-				                subject: "Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED",
-                                body: "Please go to ${env.BUILD_URL} for more details. has result ${currentBuild.result}
-                                  """<p>EXECUTED: Job <b>\'${env.JOB_NAME}:${env.BUILD_NUMBER})\'
-   </b></p><p>View console output at "<a href="${env.BUILD_URL}"> 
-   ${env.JOB_NAME}:${env.BUILD_NUMBER}</a>"</p> 
-     <p><i>(Build log is attached.)</i></p>""" ",
-                                to: 'houssem.entr@gmail.com'
+				  
 				               
-				               
-				               
-
+				               def call() {
+ def junitPattern = '**/failsafe-reports/*.xml';
+ def subject =" write your subject" ;
+ String emailTo = "houssem.entr@gmail.com" ;
+ def body = " write your mail body"
+ def providers = [[$class: 'CulpritsRecipientProvider'], [$class: DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']]
+ emailext to: emailTo, recipientProviders: providers, compressLog: true, subject: subject, attachmentsPattern: junitPattern , body: body
+}
 				               
 				               
 				                }
