@@ -2,10 +2,11 @@ pipeline {
 
 
         agent any
-node{        
+       
         tools{
                 maven 'Maven'
         }
+node{ 
         stages{
             stage('Clean'){
                 steps {
