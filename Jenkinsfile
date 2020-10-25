@@ -1,4 +1,4 @@
-node{
+
 pipeline {
 
 
@@ -9,6 +9,7 @@ pipeline {
         }
  
         stages{
+        node{
             stage('Clean'){
                 steps {
                  echo "Clean project"
@@ -25,7 +26,7 @@ pipeline {
 
                 } 
             }
-      
+         }
         }
-}
+
 }
