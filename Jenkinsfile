@@ -1,10 +1,10 @@
 node {
-        
+        try {
         tools{
                 maven 'Maven'
         }
       
-		try {
+		
      
 	        
 	            stage('Clean'){
