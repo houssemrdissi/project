@@ -35,7 +35,8 @@ pipeline {
 				                 bat "mvn sonar:sonar"
 				                }catch(errr)
 				                {
-				                def myvar=errr
+				                def myvar=${errr}
+				                echo ${myvar}
 				                }
 				                
 				                }				             
