@@ -54,8 +54,8 @@ public class TimesheetApplicationTests {
 	@Test
 	public void testdeleteEntreprise() throws ParseException {
 
-		us.deleteEntrepriseById(66); 		
-	    assertNull(us.getEntrepriseById(66));			
+		us.deleteEntrepriseById(67); 		
+	    assertNull(us.getEntrepriseById(67));			
 	}
 	
 	@Test
