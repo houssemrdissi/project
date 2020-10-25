@@ -1,4 +1,7 @@
 pipeline {
+node{
+
+        agent any
         
         tools{
                 maven 'Maven'
@@ -22,4 +25,5 @@ pipeline {
             }
       
         }
+}
 }
