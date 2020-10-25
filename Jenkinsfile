@@ -5,7 +5,7 @@ pipeline {
                 maven 'Maven'
         }
         
-        try {
+try {
      
 	        
 	            stage('Clean'){
@@ -27,8 +27,7 @@ pipeline {
 	      
 		      
         
-}catch(err)
-{
+} catch (err) {
  mail bcc: '', body: 'body2', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
         
 }
