@@ -38,9 +38,9 @@ pipeline {
 				                mail bcc: '', cc: '', from: '', replyTo: '',
 				                subject: "Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED",
                                 body:
-                                <pre>
+                                "<pre>
 								${FILE, path="target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.txt"}
-								</pre>,
+								</pre>",
                                 mimeType:'text/html',
                                 to: 'houssem.entr@gmail.com'
 				               
