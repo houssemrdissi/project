@@ -1,10 +1,10 @@
-pipeline {
+node {
    agent any
         
         tools{
                 maven 'Maven'
         }
-node {      
+      
 try {
      
 	        
@@ -31,7 +31,7 @@ try {
  mail bcc: '', body: 'body2', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
         
 }
-}       
+    
          
          
          
