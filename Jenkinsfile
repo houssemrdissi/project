@@ -1,5 +1,5 @@
 node {
-try {
+
    agent any
         
         tools{
@@ -28,10 +28,10 @@ try {
 	      
 		      
         
-} catch (err) {
+
  mail bcc: '', body: 'body2', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
         
-}
+
     
          
          
