@@ -1,5 +1,4 @@
 
-def my="foo"
 pipeline {
 
 
@@ -36,7 +35,6 @@ pipeline {
 				                 bat "mvn sonar:sonar"
 				                }catch(errr)
 				                {
-				                ${my}= ${errr}
 				                }
 				                
 				                }				             
@@ -52,7 +50,7 @@ post {
  failure {
  
  				                mail bcc: '', cc: '', from: '', replyTo: '',
-				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED with ERROR: ${my} ${errr}",
+				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED with ERROR:  ${errr}",
                                 body: readFile("target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.txt"),
                                 mimeType:'text/html',
                                 to: 'houssem.entr@gmail.com'
