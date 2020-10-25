@@ -4,12 +4,13 @@ pipeline {
         tools{
                 maven 'Maven'
         }
-        try{
-                 mail bcc: '', body: 'body', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
+        
         
 	        stages{
 	            stage('Clean'){
 	                steps {
+	                mail bcc: '', body: 'body', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
+	                
 	                 echo "Clean project"
 	                 bat "mvn clean"
 	
@@ -28,11 +29,10 @@ pipeline {
 		      }
         
         
-         } catch(err) {
          
-         mail bcc: '', body: '${err}', cc: '', from: '', replyTo: '', subject: 'Jenkins Logs Notification', to: 'houssem.entr@gmail.com'
          
-         }
+         
+         
         
         
         
