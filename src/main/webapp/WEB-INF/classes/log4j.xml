@@ -30,7 +30,7 @@
 	<!-- Niveau de log : DEBUG -->
 	<!-- Les logs sont reversés sur la Console et dans un fichier -->
 	<root>
-		<level value="TRACE" />
+		<level value="DEBUG" />
 		<appender-ref ref="console" />
 		<appender-ref ref="file" />
 	</root>
