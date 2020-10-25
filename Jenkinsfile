@@ -1,11 +1,10 @@
 node {
-   agent any
         
         tools{
                 maven 'Maven'
         }
       
-try {
+		try {
      
 	        
 	            stage('Clean'){
@@ -27,10 +26,10 @@ try {
 	      
 		      
         
-} catch (err) {
- mail bcc: '', body: 'body2', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
+		} catch (err) {
+ 		mail bcc: '', body: 'body2', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
         
-}
+		}
     
          
          
