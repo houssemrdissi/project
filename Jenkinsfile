@@ -50,7 +50,7 @@ post {
  failure {
  
  				                mail bcc: '', cc: '', from: '', replyTo: '',
-				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED",
+				                subject: "TESTS Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED with ERROR: ${my}",
                                 body: readFile("target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.txt"),
                                 mimeType:'text/html',
                                 to: 'houssem.entr@gmail.com'
