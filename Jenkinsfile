@@ -37,7 +37,7 @@ pipeline {
 				                {
 				                mail bcc: '', cc: '', from: '', replyTo: '',
 				                subject: "Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED",
-                                body: "Please go to ${env.BUILD_URL} for more details. ",
+                                body: "Please go to ${env.BUILD_URL} for more details. has result ${currentBuild.result} ",
                                 to: 'houssem.entr@gmail.com'
 				                }
 				                
