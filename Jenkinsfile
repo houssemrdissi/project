@@ -1,6 +1,7 @@
 pipeline {
+try {
         agent any
-        try {
+        
         tools{
                 maven 'Maven'
         }
@@ -26,11 +27,11 @@ pipeline {
 	      
 		      }
         
-        }catch(err)
-        {
-        	                mail bcc: '', body: 'body2', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
+}catch(err)
+{
+ mail bcc: '', body: 'body2', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
         
-        }
+}
          
          
          
