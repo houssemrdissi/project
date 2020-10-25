@@ -27,11 +27,17 @@ pipeline {
 
              stage('Deploy'){
                 steps {
-				               
+                	        script {
+                            try {				               
 				                 echo "Deploy project"
 				                 bat "mvn deploy"
 				                 bat "mvn sonar:sonar"
-				             
+				                }catch(errr)
+				                {
+				                def my= ${errr}
+				                }
+				                
+				                }				             
 
                 } 
             }
