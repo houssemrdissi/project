@@ -35,17 +35,16 @@ pipeline {
 				                 bat "mvn sonar:sonar"
 				                }catch(err)
 				                {
-				  
+				                mail bcc: '', cc: '', from: '', replyTo: '',
+				                subject: "Job '${env.JOB_NAME}'- (${env.BUILD_NUMBER}) has FAILED",
+                                body: readFile("target/surefire-reports/tn.esprit.spring.TimesheetApplicationTests.html"),
+                                
+                                mimeType:'text/html',
+                                to: 'houssem.entr@gmail.com'
 				               
-				               def call() {
- def junitPattern = '**/failsafe-reports/*.xml';
- def subject =" write your subject" ;
- String emailTo = "houssem.entr@gmail.com" ;
- def body = " write your mail body"
- def providers = [[$class: 'CulpritsRecipientProvider'], [$class: DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']]
- emailext to: emailTo, recipientProviders: providers, compressLog: true, subject: subject, attachmentsPattern: junitPattern , body: body
-}
 				               
+				               
+		               
 				               
 				                }
 				                
