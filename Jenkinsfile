@@ -18,7 +18,7 @@ pipeline {
 				                 bat "mvn clean"
 				                }catch(err)
 				                {
-				                mail bcc: '', body: '${err}', cc: '', from: '', replyTo: '', subject: 'notif', to: 'houssem.entr@gmail.com'
+				                mail bcc: '', body: "${err}", cc: '', from: '', replyTo: '', subject: 'notif1', to: 'houssem.entr@gmail.com'
 				                }
 				                
 				                }
@@ -35,7 +35,7 @@ pipeline {
 				                 bat "mvn sonar:sonar"
 				                }catch(err)
 				                {
-				                mail bcc: '', body: '${err}', cc: '', from: '', replyTo: '', subject: 'notif', to: 'houssem.entr@gmail.com'
+				                mail bcc: '', body: "${err}", cc: '', from: '', replyTo: '', subject: 'notif2', to: 'houssem.entr@gmail.com'
 				                }
 				                
 				                }
