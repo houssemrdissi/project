@@ -1,6 +1,6 @@
 pipeline {
         agent any
-        
+        try {
         tools{
                 maven 'Maven'
         }
@@ -8,9 +8,7 @@ pipeline {
         
 	        stages{
 	            stage('Clean'){
-	                steps {
-	                mail bcc: '', body: 'body', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
-	                
+	                steps {	                
 	                 echo "Clean project"
 	                 bat "mvn clean"
 	
@@ -28,7 +26,11 @@ pipeline {
 	      
 		      }
         
+        }catch(err)
+        {
+        	                mail bcc: '', body: 'body2', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
         
+        }
          
          
          
