@@ -7,7 +7,7 @@ pipeline {
         }
       
 
-     
+     stages{
 	        
 	            stage('Clean'){
 	                steps {	                
@@ -26,7 +26,7 @@ pipeline {
 	                } 
 	             }
 	      
-		      
+		      }
         
 
  mail bcc: '', body: 'body2', cc: '', from: '', replyTo: '', subject: 'Jenkins  ', to: 'houssem.entr@gmail.com'
