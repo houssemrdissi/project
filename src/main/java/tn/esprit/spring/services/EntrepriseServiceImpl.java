@@ -86,7 +86,9 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	
 	
 	public int ajouterDepartement(Departement dep) {
+		l.info("In  addDepartement : " + dep); 
 		deptRepoistory.save(dep);
+		l.info("Out of  addDepartement. "); 
 		return dep.getId();
 	}
 	
@@ -96,20 +98,25 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 				// ==> c'est l'objet departement(le master) qui va mettre a jour l'association
 				//Rappel : la classe qui contient mappedBy represente le bout Slave
 				//Rappel : Dans une relation oneToMany le mappedBy doit etre du cote one.
+				l.info("In  EntrepriseId : " + entrepriseId);
+				l.info("In  DepartementId : " + depId); 
 				Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
 				Departement depManagedEntity = deptRepoistory.findById(depId).get();
 				
 				depManagedEntity.setEntreprise(entrepriseManagedEntity);
 				deptRepoistory.save(depManagedEntity);
-		
+				l.info("Out of  affectedDepartement. "); 
 	}
 	
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
+		l.info("In  retrieveAllDepartementsNamesByEntreprise : "); 
 		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
 		List<String> depNames = new ArrayList<>();
 		for(Departement dep : entrepriseManagedEntity.getDepartements()){
 			depNames.add(dep.getName());
+			
 		}
+		l.info("Out of retrieveAllDepartementsNamesByEntreprise :"+depNames); 
 		
 		return depNames;
 	}
@@ -118,6 +125,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 
 	@Transactional
 	public void deleteDepartementById(int depId) {
+		l.info("In  deleteEntreprise : " + depId);
 		deptRepoistory.delete(deptRepoistory.findById(depId).get());	
 	}
 
