@@ -19,8 +19,8 @@ import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.services.IEntrepriseService;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class DepartementServiceImplTest {
 
 	@Autowired 
