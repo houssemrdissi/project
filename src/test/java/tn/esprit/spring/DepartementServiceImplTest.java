@@ -19,7 +19,7 @@ import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.services.IEntrepriseService;
 
-//@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class DepartementServiceImplTest {
 
@@ -46,7 +46,7 @@ public class DepartementServiceImplTest {
 	@Test
 	public void testdeleteDep() throws ParseException {
 
-		us.deleteDepartementById(17); 		
+		us.deleteDepartementById(18); 		
 	  //  assertNull(deptRepoistory.findById(15));			
 	}
 	
