@@ -20,7 +20,7 @@ import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.services.IEntrepriseService;
 
 //@RunWith(SpringRunner.class)
-//@SpringBootTest
+@SpringBootTest
 public class DepartementServiceImplTest {
 
 	@Autowired 
