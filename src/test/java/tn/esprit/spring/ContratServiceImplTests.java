@@ -50,13 +50,6 @@ public class ContratServiceImplTests {
 	}
 	
 	 
-	@Test
-	public void testdeleteContrat() throws ParseException {
-
-		es.deleteContratById(22); 		
-	    assertNull(cs.getAllContrats());			
-	}
-	
 	 
 	
 	 
