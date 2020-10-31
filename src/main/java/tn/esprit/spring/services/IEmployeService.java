@@ -14,7 +14,7 @@ public interface IEmployeService {
 	
 	public Employe authenticate(String login, String password) ;
 	 
-	
+	public int ajouterEmploye(Employe employe);
 	public void mettreAjourEmailByEmployeId(String email, int employeId);
 	public void affecterEmployeADepartement(int employeId, int depId);
 	public void desaffecterEmployeDuDepartement(int employeId, int depId);
@@ -23,6 +23,7 @@ public interface IEmployeService {
 	public String getEmployePrenomById(int employeId);
 	public void deleteEmployeById(int employeId);
 	public void deleteContratById(int contratId);
+	public Employe updateEmploye(Employe e);
 	public int getNombreEmployeJPQL();
 	public List<String> getAllEmployeNamesJPQL();
 	public List<Employe> getAllEmployeByEntreprise(Entreprise entreprise);
