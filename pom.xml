@@ -142,6 +142,8 @@
           <includes>
             <include>EntrepriseServiceImplTests.java</include>
             <include>DepartementServiceImplTest.java</include>
+            <include>EmployeServiceImplTest.java</include>
+            
             
           </includes>
         </configuration>
