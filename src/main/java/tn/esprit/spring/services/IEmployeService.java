@@ -36,6 +36,9 @@ public interface IEmployeService {
 	Date dateDebut, Date dateFin);
 
 	int addOrUpdateEmploye(Employe employe);
+
+
+	Employe updateEmploye(Employe e);
 	
 	
 	

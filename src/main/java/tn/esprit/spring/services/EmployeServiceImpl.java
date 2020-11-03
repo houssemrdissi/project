@@ -32,6 +32,31 @@ public class EmployeServiceImpl implements IEmployeService {
 	ContratRepository contratRepoistory;
 	@Autowired
 	TimesheetRepository timesheetRepository;
+	private static final Logger l = LogManager.getLogger(EmployeServiceImpl.class);
+	
+	public int ajouterEmploye(Employe employe) {
+		l.info("In  addEntreprise : " + employe); 
+		employeRepository.save(employe);
+		l.info("Out of  addEmploye. "); 
+		return employe.getId();
+	}
+	
+	@Override 
+	public Employe updateEmploye(Employe e) {
+		l.info("In  updateEntreprise : " + e); 
+		return employeRepository.save(e);		
+	}
+	
+	public Employe getEmployeById(int employeId) {
+		l.info("in  retrieveEmploye id = " + employeId);
+			if( employeRepository.existsById(employeId)==false)
+			{
+				return null;
+			}
+			l.info("entreprise returned : " + employeRepository.findById(employeId).get());
+			return employeRepository.findById(employeId).get();
+	}
+	
 
 	private static final Logger l = LogManager.getLogger(EntrepriseServiceImpl.class);
 
@@ -105,8 +130,12 @@ public class EmployeServiceImpl implements IEmployeService {
 	
 	// Tablesapce (espace disque) 
 
+	
 	public int ajouterContrat(Contrat contrat) {
+		l.info("In  addContrat : " + contrat);
+		l.debug("Contrat ajouté!!!!");
 		contratRepoistory.save(contrat);
+		l.info("Out of  addContrat. ");
 		return contrat.getReference();
 	}
 
@@ -139,8 +168,10 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public void deleteContratById(int contratId) {
+		l.info("In  deleteContrat : " + contratId);
 		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
 		contratRepoistory.delete(contratManagedEntity);
+		l.info("Out of  deleteContrat. ");
 
 	}
 
@@ -181,5 +212,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	public List<Employe> getAllEmployes() {
 		return (List<Employe>) employeRepository.findAll();
 	}
+
+	
 
 }

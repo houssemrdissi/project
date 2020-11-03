@@ -46,7 +46,7 @@ public class DepartementServiceImplTest {
 	@Test
 	public void testdeleteDep() throws ParseException {
 
-		us.deleteDepartementById(22); 		
+		us.deleteDepartementById(24); 		
 	  //  assertNull(deptRepoistory.findById(15));			
 	}
 	
