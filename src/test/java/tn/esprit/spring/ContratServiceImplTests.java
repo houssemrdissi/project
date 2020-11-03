@@ -39,17 +39,34 @@ public class ContratServiceImplTests {
 	
 	
 	/////////////////////////////////// START MODULE CONTRAT ////////////////////////////////////////
-
+   
 	@Test
+	
 	public void testajouterContrat() throws ParseException {
 		
 		Contrat c = new Contrat(null, "type0", 0);
 		int contratAdded= es.ajouterContrat(c); 
 		
-		assertEquals(c.getEmploye(), contratAdded);
+		assertEquals(c.getReference(), contratAdded);
 	}
 	
+	@Test
+	public void testdeleteCont() throws ParseException {
+
+		es.deleteContratById(6); 
+		Contrat c = new Contrat();
+		assertNull(c.getDateDebut());
+		
+ 		
+	}
+	
+	
 	 
+
+		  		
+	    			
+	
+	
 	 
 	
 	 
