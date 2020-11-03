@@ -12,7 +12,7 @@
 	
 	<groupId>tn.esprit.spring</groupId>
 	<artifactId>timesheet</artifactId>
-	<version>5.4</version>
+	<version>5.5</version>
 	<name>timesheet</name>
 	<description>timesheet</description>
 
@@ -142,6 +142,7 @@
           <includes>
             <include>EntrepriseServiceImplTests.java</include>
             <include>DepartementServiceImplTest.java</include>
+            <include>ContratServiceImplTests.java</include>
             
           </includes>
         </configuration>
