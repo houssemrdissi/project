@@ -59,8 +59,8 @@ public class EntrepriseServiceImplTests {
 	@Test
 	public void testdeleteEntreprise() throws ParseException {
 
-		us.deleteEntrepriseById(76); 		
-	    assertNull(us.getEntrepriseById(76));			
+		us.deleteEntrepriseById(77); 		
+	    assertNull(us.getEntrepriseById(77));			
 	}
 	
 	@Test

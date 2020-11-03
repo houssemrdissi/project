@@ -20,6 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import tn.esprit.spring.entities.Employe;
+import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.services.IEmployeService;
 
 
@@ -42,7 +43,7 @@ public class EmployeServiceImplTests {
 	@Test
 	public void testajouterEmploye() throws ParseException {
 		
-		Employe e = new Employe(0, "new", "world", null, null, false, null);
+		Employe e = new Employe( "new", "world", "a", "a", false, Role.INGENIEUR);
 		int employeAdded= us.ajouterEmploye(e); 
 		
 		assertEquals(e.getId(), employeAdded);
@@ -51,7 +52,7 @@ public class EmployeServiceImplTests {
 	@Test
 	public void testupdateemploye() throws ParseException {
 		
-		Employe e = new Employe(3,"update", "world", null, null, false, null);
+		Employe e = new Employe(15,"update", "world", "a", "a", false, Role.INGENIEUR);
 
 		Employe employeAdded= us.updateEmploye(e); 
 		assertEquals(e.getPrenom(), employeAdded.getPrenom());
@@ -61,8 +62,8 @@ public class EmployeServiceImplTests {
 	@Test
 	public void testdeleteEmploye() throws ParseException {
 
-		us.deleteEmployeById(74); 		
-	    			
+		us.deleteEmployeById(14); 		
+
 	}
 	
 	
@@ -71,7 +72,7 @@ public class EmployeServiceImplTests {
 	public void testRetrieveAllEmploye() {
 		
 		List<Employe> Employes = us.getAllEmployes(); 
-		assertEquals(89, Employes.size());
+		assertEquals(4, Employes.size());
 	}
 	
 	///////////////////////////////////////// FINISH Khaled MODULE CRUD TEST Employe /////////////////////////////
