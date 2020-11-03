@@ -38,7 +38,6 @@ public interface IEmployeService {
 	int addOrUpdateEmploye(Employe employe);
 
 
-	Employe updateEmploye(Employe e);
 	
 	
 	
