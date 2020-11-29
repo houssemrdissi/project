@@ -55,7 +55,7 @@ public class ContratServiceImplTests {
 	@Test
 	public void testdeleteCont() throws ParseException {
 
-		es.deleteContratById(11); 
+		es.deleteContratById(22); 
 		Contrat c = new Contrat();
 		assertNull(c.getDateDebut());
 
